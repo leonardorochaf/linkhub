@@ -10,6 +10,8 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import NotFound from "./pages/NotFound";
 import { useLinkStore } from "./store/linkStore";
+import DashboardPage from "./pages/DashboardPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,7 +39,9 @@ const App = () => {
               <Route index element={<Index />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="signup" element={<SignupPage />} />
+              <Route path="dashboard" element={<DashboardPage />} />
             </Route>
+            <Route path="/profile/:username" element={<ProfilePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
