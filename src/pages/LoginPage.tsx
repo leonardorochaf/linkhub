@@ -54,8 +54,8 @@ const LoginPage = () => {
         // Log in the user
         login(profile.username);
         
-        // Force a hard reload to ensure fresh data
-        window.location.href = '/dashboard';
+        // Use React Router's navigate instead of window.location
+        navigate('/linkhub/dashboard');
       }
     } catch (err) {
       setError('An unexpected error occurred');

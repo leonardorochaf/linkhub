@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { useLinkStore } from '../store/linkStore';
 import { supabase } from '../lib/supabase';
 
 const Layout: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { profile, authenticated, logout } = useLinkStore();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   
   const isProfileRoute = location.pathname.includes('/profile/');
-  const isLoginPage = location.pathname === '/login';
-  const isSignupPage = location.pathname === '/signup';
+  const isLoginPage = location.pathname === '/linkhub/login';
+  const isSignupPage = location.pathname === '/linkhub/signup';
 
   const handleLogout = async () => {
     try {
@@ -20,7 +21,7 @@ const Layout: React.FC = () => {
       if (error) throw error;
       
       logout();
-      window.location.href = '/login';
+      navigate('/linkhub/login');
     } catch (err) {
       console.error('Logout error:', err);
     } finally {
@@ -32,11 +33,11 @@ const Layout: React.FC = () => {
     <div className="h-screen flex flex-col bg-background overflow-hidden">
       {!isProfileRoute && (
         <header className="border-b px-6 py-3 flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold">LinkHub</Link>
+          <Link to="/linkhub" className="text-xl font-bold">LinkHub</Link>
           <div className="flex items-center gap-4">
             {authenticated ? (
               <>
-                <Link to={`/profile/${profile.username}`} target="_blank">
+                <Link to={`/linkhub/profile/${profile.username}`} target="_blank">
                   <Button variant="secondary" size="sm">View Profile</Button>
                 </Link>
                 <Button 
@@ -51,17 +52,17 @@ const Layout: React.FC = () => {
             ) : (
               <>
                 {isLoginPage && (
-                  <Link to="/signup">
+                  <Link to="/linkhub/signup">
                     <Button size="sm">Sign Up</Button>
                   </Link>
                 )}
                 {isSignupPage && (
-                  <Link to="/login">
+                  <Link to="/linkhub/login">
                     <Button size="sm">Login</Button>
                   </Link>
                 )}
                 {!isLoginPage && !isSignupPage && (
-                  <Link to="/login">
+                  <Link to="/linkhub/login">
                     <Button size="sm">Login</Button>
                   </Link>
                 )}

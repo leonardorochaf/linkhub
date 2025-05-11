@@ -38,7 +38,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     if (!authenticated) {
-      navigate('/');
+      navigate('/linkhub');
     }
   }, [authenticated, navigate]);
 

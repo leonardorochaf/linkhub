@@ -35,13 +35,13 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/linkhub" element={<Layout />}>
               <Route index element={<Index />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="signup" element={<SignupPage />} />
               <Route path="dashboard" element={<DashboardPage />} />
             </Route>
-            <Route path="/profile/:username" element={<ProfilePage />} />
+            <Route path="/linkhub/profile/:username" element={<ProfilePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

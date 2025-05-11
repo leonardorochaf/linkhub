@@ -9,7 +9,7 @@ const Index = () => {
   
   useEffect(() => {
     if (authenticated) {
-      navigate('/dashboard');
+      navigate('/linkhub/dashboard');
     }
   }, [authenticated, navigate]);
   
@@ -25,7 +25,7 @@ const Index = () => {
               Create your personal link hub and share it with the world. Simple, customizable, and efficient.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={() => navigate('/signup')} size="lg" className="bg-brand-blue hover:bg-brand-blue/90">
+              <Button onClick={() => navigate('/linkhub/signup')} size="lg" className="bg-brand-blue hover:bg-brand-blue/90">
                 Get Started
               </Button>
             </div>

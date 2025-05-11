@@ -71,7 +71,7 @@ const SignupPage = () => {
         }
 
         login(username);
-        navigate('/dashboard');
+        navigate('/linkhub/dashboard');
       }
     } catch (err) {
       console.error('Signup error:', err);
