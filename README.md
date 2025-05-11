@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# LinkHub - Your Personal Link Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Live Demo:** [https://leonardorochaf.github.io/linkhub](https://leonardorochaf.github.io/linkhub)
 
-Currently, two official plugins are available:
+LinkHub is a modern, privacy-focused alternative to Linktree, built with React, TypeScript, and Supabase. It allows users to create a personalized landing page with their important links, all while maintaining full control over their data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## Expanding the ESLint configuration
+### Core Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Personalized Landing Pages**: Create and customize your unique profile page
+- **Link Management**: Add, edit, and delete links with ease
+- **User Authentication**: Secure login system for managing your links
+- **Privacy Controls**: Granular control over what information is displayed publicly
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Technical Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Built with React + TypeScript + Vite
+- Modern, responsive design
+- Secure authentication system
+- Powered by Supabase for backend services:
+  - Real-time database
+  - Authentication
+  - Storage for profile images
+  - Row Level Security (RLS) for data protection
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📝 Scope Decisions & Trade-offs
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Implemented Features
+
+- Basic authentication system for user management
+- Public profile pages with customizable URLs
+- CRUD operations for links
+- Privacy controls for profile information
+- Responsive design for all devices
+
+### Trade-offs
+
+- Focused on core functionality over advanced features
+- Prioritized user experience and simplicity
+- Chose lightweight authentication for MVP
+- Limited analytics to basic view counts
+
+## 🔒 Privacy & Security
+
+- User data is stored securely in Supabase with Row Level Security
+- Public profiles only show approved information
+- Authentication uses Supabase Auth with industry-standard practices
